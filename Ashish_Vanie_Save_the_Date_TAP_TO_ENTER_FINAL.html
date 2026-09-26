@@ -1,1 +1,162 @@
-index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ashish & Vanie | Save the Date</title>
+<style>
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Georgia, serif;
+  color: #fff8ec;
+  background:
+    radial-gradient(ellipse at top, #784b43 0%, transparent 55%),
+    linear-gradient(145deg, #160f18, #39202a 55%, #171017);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+}
+.card {
+  width: 100%;
+  max-width: 650px;
+  padding: 48px 22px;
+  border: 1px solid rgba(239,207,153,.65);
+  outline: 1px solid rgba(239,207,153,.18);
+  outline-offset: 8px;
+  background: rgba(25, 12, 20, .48);
+  box-shadow: 0 20px 80px #0008;
+}
+.top {
+  color: #e7c58c;
+  font-size: 13px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+}
+h1 {
+  font-size: clamp(42px, 10vw, 76px);
+  line-height: 1.08;
+  font-weight: normal;
+  margin: 28px 0 12px;
+}
+.amp {
+  display: block;
+  color: #e7c58c;
+  font-size: 30px;
+  font-style: italic;
+  margin: 8px 0;
+}
+.subtitle {
+  color: #e7c58c;
+  font-size: 14px;
+  letter-spacing: 4px;
+  margin-top: 30px;
+}
+.date {
+  font-size: clamp(26px, 7vw, 42px);
+  margin: 15px 0 5px;
+}
+.year {
+  color: #e7c58c;
+  letter-spacing: 5px;
+  font-size: 17px;
+}
+.line {
+  width: 90px;
+  height: 1px;
+  background: #d9b77e;
+  margin: 28px auto;
+}
+.message {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #f2e4d5;
+}
+.count-label {
+  color: #e7c58c;
+  letter-spacing: 3px;
+  font-size: 12px;
+  margin-top: 28px;
+}
+.countdown {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin: 18px auto 0;
+  flex-wrap: wrap;
+}
+.unit {
+  min-width: 65px;
+  padding: 12px 8px;
+  border: 1px solid #b99769;
+  background: #ffffff0b;
+}
+.number {
+  font-size: 27px;
+  display: block;
+}
+.unit small {
+  color: #e7c58c;
+  font-size: 10px;
+  letter-spacing: 1px;
+}
+.footer {
+  margin-top: 32px;
+  font-size: 12px;
+  color: #d8c0ad;
+  letter-spacing: 2px;
+}
+@media(max-width:400px) {
+  .card { padding: 38px 14px; }
+  .unit { min-width: 58px; }
+}
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="top">Together with our families</div>
+  <h1>Ashish <span class="amp">&</span> Vanie</h1>
+  <div class="line"></div>
+  <div class="subtitle">SAVE THE DATE</div>
+  <div class="date">31 January</div>
+  <div class="year">2027</div>
+  <div class="line"></div>
+  <div class="message">
+    Two hearts, one beautiful journey.<br>
+    Join us as we begin our forever.
+  </div>
+  <div class="count-label">COUNTING DOWN TO OUR BIG DAY</div>
+  <div class="countdown">
+    <div class="unit"><span class="number" id="days">--</span><small>DAYS</small></div>
+    <div class="unit"><span class="number" id="hours">--</span><small>HOURS</small></div>
+    <div class="unit"><span class="number" id="minutes">--</span><small>MINUTES</small></div>
+    <div class="unit"><span class="number" id="seconds">--</span><small>SECONDS</small></div>
+  </div>
+  <div class="footer">A NEW CHAPTER BEGINS</div>
+</main>
+<script>
+function updateCountdown() {
+  const wedding = new Date(2027, 0, 31, 0, 0, 0).getTime();
+  const now = Date.now();
+  const diff = wedding - now;
+  if (diff <= 0) {
+    document.querySelector(".countdown").innerHTML = "The big day is here!";
+    return;
+  }
+  document.getElementById("days").textContent =
+    Math.floor(diff / 86400000);
+  document.getElementById("hours").textContent =
+    Math.floor((diff % 86400000) / 3600000);
+  document.getElementById("minutes").textContent =
+    Math.floor((diff % 3600000) / 60000);
+  document.getElementById("seconds").textContent =
+    Math.floor((diff % 60000) / 1000);
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+</script>
+</body>
+</html>
