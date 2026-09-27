@@ -1,1 +1,30 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Ashish & Vanie | Save the Date</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:22px;background:radial-gradient(ellipse at 50% 0,#76533c,#211710 65%);color:#4b3020;font-family:Montserrat, sans-serif}
+.card{width:min(760px,100%);min-height:650px;position:relative;overflow:hidden;text-align:center;padding:54px 28px;background:linear-gradient(145deg,#fffaf0,#f3e3c9);border:1px solid #d6ad70;box-shadow:0 25px 80px #0008}
+.card:before{content:"";position:absolute;inset:12px;border:1px solid #c99b5c;pointer-events:none}
+.orn{color:#b27b39;font-size:28px;letter-spacing:12px}.eyebrow{margin:22px 0 8px;font-size:10px;letter-spacing:5px;text-transform:uppercase;color:#987044}
+h1{font:clamp(65px,12vw,105px)/.95 "Great Vibes",cursive;color:#98612e;margin:12px 0 16px;font-weight:400}
+.and{font:italic 24px "Cormorant Garamond",serif;color:#b88a50;display:block;margin:4px}
+.subtitle{font:500 12px Montserrat,sans-serif;letter-spacing:5px;text-transform:uppercase;margin:28px 0 8px;color:#795533}
+.date{font:500 clamp(30px,6vw,43px) "Cormorant Garamond",serif;letter-spacing:2px;margin:8px 0;color:#422b1d}
+.line{height:1px;width:160px;background:#c9a16a;margin:18px auto}
+.count-title{font:34px "Great Vibes",cursive;color:#a56e35;margin:12px 0}
+.count{display:flex;justify-content:center;gap:10px;max-width:470px;margin:18px auto 24px}
+.unit{flex:1;min-width:0;padding:14px 4px 10px;border:1px solid #d6b783;background:#fff9ed;box-shadow:0 4px 14px #6d482014}
+.num{display:block;font:600 clamp(28px,6vw,42px)/1 "Cormorant Garamond",serif;color:#3e2b1e}.label{display:block;margin-top:7px;font-size:8px;letter-spacing:2px;text-transform:uppercase;color:#9a713e}
+.note{font:italic 27px/1.2 "Great Vibes",cursive;color:#98612e;margin:20px 0 0}.footer{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#a17b4d;margin-top:28px}
+@media(max-width:420px){.card{padding:45px 18px}.count{gap:5px}.unit{padding:12px 2px 9px}.label{font-size:7px;letter-spacing:1px}}
+</style></head>
+<body><main class="card"><div class="orn">✦ ❦ ✦</div><p class="eyebrow">A little love, a lifetime together</p><div class="line"></div><p class="subtitle">Save the Date</p><h1>Ashish <span class="and">&amp;</span> Vanie</h1><div class="orn">❧ ♥ ❧</div><p class="subtitle">Are getting married</p><div class="date">31st January 2027</div><div class="line"></div><p class="count-title">The countdown to our forever</p><div class="count"><div class="unit"><span class="num" id="days">---</span><span class="label">Days</span></div><div class="unit"><span class="num" id="hours">--</span><span class="label">Hours</span></div><div class="unit"><span class="num" id="minutes">--</span><span class="label">Minutes</span></div><div class="unit"><span class="num" id="seconds">--</span><span class="label">Seconds</span></div></div><p class="note">A new chapter of our forever<br>is about to begin…</p><div class="footer">With love · Ashish &amp; Vanie</div></main>
+<script>
+const target=new Date("2027-01-31T00:00:00");
+function tick(){let ms=target.getTime()-Date.now();if(ms<0)ms=0;const d=Math.floor(ms/86400000),h=Math.floor(ms%86400000/3600000),m=Math.floor(ms%3600000/60000),s=Math.floor(ms%60000/1000);document.getElementById("days").textContent=String(d).padStart(3,"0");document.getElementById("hours").textContent=String(h).padStart(2,"0");document.getElementById("minutes").textContent=String(m).padStart(2,"0");document.getElementById("seconds").textContent=String(s).padStart(2,"0")}
+tick();setInterval(tick,1000);
+</script></body></html>
